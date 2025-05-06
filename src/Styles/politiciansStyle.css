@@ -1,0 +1,18 @@
+.ff-card{
+  width: 300px;
+  min-height: 650px;
+}
+
+.ff-card-image{
+  width:100%;
+  height:300px;
+  object-position: top;
+  object-fit: cover;
+}
+
+.ff-card-info h3{
+  font-weight:600;
+}
+.ff-card-info h5{
+  font-weight:600;
+}
