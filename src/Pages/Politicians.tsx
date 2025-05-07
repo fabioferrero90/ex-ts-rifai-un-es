@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PoliticianCard from '../Components/PoliticianCard';
+import type { Politician } from '../Types/politicianTypes';
 import '../Styles/politiciansStyle.css';
 
 const Politicians = () => {
-  const [ politicians, setPoliticians ] = useState([]);
+  const [ politicians, setPoliticians ] = useState<Politician[]>([]);
   const [ search, setSearch ] = useState<string>('');
 
   async function getPolitician() : Promise<void>{
@@ -21,16 +22,10 @@ const Politicians = () => {
   }
 
   const filteredPoliticians = useMemo(() => {
-    return politicians.filter((politician:unknown) => {
-      if ( 
-        politician && typeof politician === "object" && 
-        "name" in politician && typeof politician.name === "string" && 
-        "biography" in politician && typeof politician.biography === "string"
-      ){
+    return politicians.filter((politician: Politician) => {
         const isInName : boolean = politician.name.toLowerCase().includes(search.toLowerCase());
         const isInBio : boolean = politician.biography.toLowerCase().includes(search.toLowerCase());
         return isInName || isInBio;
-      }
       })
   }, [search, politicians]);
 
