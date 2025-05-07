@@ -1,22 +1,7 @@
 import { memo } from "react";
+import type { Politician } from "../Types/politicianTypes";
 
-type Politician = {
-  name: string;
-  country: string;
-  biography: string;
-  dob: string;
-  id: number;
-  image: string;
-  party: string;
-  position: string;
-  years_in_office: string;
-};
-
-type PoliticianCardProps = {
-  politician: Politician;
-}
-
-const PoliticianCard = memo(({ politician }: PoliticianCardProps) => {
+const PoliticianCard = memo(({ politician }: { politician: Politician}) => {
   console.log("Card")
   return (
     <div className="ff-card border-2 rounded m-1 w-[30%]">

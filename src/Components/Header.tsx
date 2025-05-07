@@ -1,11 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import type { headerMenuType } from '../Types/headerTypes';
 
-type HeaderProps = {
-  headerMenu: headerMenuType[]
-}
-
-const Header = ({headerMenu} : HeaderProps) => {
+const Header = ({headerMenu} : { headerMenu: headerMenuType[] }) => {
   const navigate = useNavigate()
 
   return (
